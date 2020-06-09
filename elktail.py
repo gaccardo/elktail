@@ -7,8 +7,8 @@ import json
 import elastic
 
 
-def get_lines(client, iso_date, project, process_type):
-    body = elastic.get_search_body(iso_date, project, process_type)
+def get_lines(client, iso_date, project, process_type, environment):
+    body = elastic.get_search_body(iso_date, project, process_type, environment)
     response = elastic.search(client, body)
     new_ts = None
     lines = list()
@@ -30,12 +30,18 @@ def show_lines(lines):
         print(line)
 
 
-def mainloop(project=None, process_type=None):
+def mainloop(project=None, process_type=None, environment=None):
     client = elastic.connect()
     iso_date = datetime.utcnow().isoformat()
     last = None
     while True:
-        iso_date, lines = get_lines(client, iso_date, project, process_type)
+        iso_date, lines = get_lines(
+            client,
+            iso_date,
+            project,
+            process_type,
+            environment
+        )
         show_lines(lines)
 
         if iso_date is None:
@@ -55,6 +61,12 @@ if __name__ == "__main__":
         help="[optional] select the project that logs will be displayed")
     parser.add_option("-t", "--process_type", dest="process_type",
         help="[optional] select the process type that logs will be displayed")
+    parser.add_option("-e", "--environment", dest="environment",
+        help="[optional] environment")
     (options, args) = parser.parse_args()
 
-    mainloop(project=options.project, process_type=options.process_type)
+    mainloop(
+       project=options.project,
+       process_type=options.process_type,
+       environment=options.environment
+    )

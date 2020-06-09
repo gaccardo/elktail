@@ -14,7 +14,8 @@ def connect():
     )
 
 
-def get_search_body(iso_date, project=None, process_type=None):
+def get_search_body(iso_date, project=None, process_type=None,
+                    environment=None):
     body = {
         "source": {
             "size": 10000,
@@ -46,6 +47,14 @@ def get_search_body(iso_date, project=None, process_type=None):
             {
                 'match': {
                     'fields.process_type.keyword': process_type
+                }
+            }
+        )
+    if environment is not None:
+        body['source']['query']['bool']['must'].append(
+            {
+                'match': {
+                    'fields.environment.keyword': environment
                 }
             }
         )
