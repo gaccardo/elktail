@@ -21,7 +21,7 @@ class install(_install):
 
 setup(
     name="elktail",
-    version="0.2",
+    version="1.0",
     author="Guido Accardo",
     author_email="gaccardo@gmail.com",
     license='GPLv2',
