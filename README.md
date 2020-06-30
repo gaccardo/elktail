@@ -19,6 +19,12 @@ directly.
 The tools gets installed globally on your system so it requires root
 permissions. Its final destination will be /usr/local/elktail.
 
+### Download the latest release
+
+* [1.0](https://github.com/BridgeMarketing/elktail/releases/tag/v1.0)
+
+### Clone the project
+
 ```bash
 $ git clone git@github.com:BridgeMarketing/elktail.git
 $ cd elktail/
