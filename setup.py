@@ -21,7 +21,17 @@ class install(_install):
 
 setup(
     name="elktail",
-    version="0.1.2",
+    version="0.2",
+    author="Guido Accardo",
+    author_email="gaccardo@gmail.com",
+    license='GPLv2',
+    classifiers=[
+        'Development Status :: 4 - Beta',
+        'Intended Audience :: DevOps & Developers',
+        'Topic :: DevOps administrative tools',
+        'Programming Language :: Python :: 3.8'
+    ],
+    keywords='elk elasticsearch filebeat tail-like',
     description="simple tailf to filebeat indexes in elasticsearch",
     cmdclass={'install': install},
     packages=["elktail"]
