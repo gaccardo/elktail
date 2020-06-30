@@ -2,7 +2,7 @@ import configparser
 from elasticsearch import Elasticsearch
 from datetime import datetime
 
-import configuration
+from elktail import configuration
 
 
 def connect():
