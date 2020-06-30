@@ -1,5 +1,6 @@
-import sys
 import os
+import sys
+import errno
 import configparser
 
 
@@ -31,6 +32,18 @@ def get_config():
 
 def config_creator(config_path):
     print(f"creating configuration file: {config_path}")
+
+    try:
+        os.makedirs(
+            os.path.join(
+                os.environ.get("HOME"),
+                ".config/elktail"
+            )
+        )
+    except OSError as e:
+        if e.errno != errno.EEXIST:
+            raise
+
     host = input("elasticsearch host: ")
     username = input("username: ")
     password = input("password: ")
