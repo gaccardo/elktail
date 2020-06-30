@@ -1,2 +1,0 @@
-response['_source']['message']
-response['_source']['@timestamp']

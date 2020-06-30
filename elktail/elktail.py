@@ -1,10 +1,12 @@
+#!/usr/bin/env python
+
 import sys
 import time
 from datetime import datetime, timedelta
 from optparse import OptionParser
 import json
 
-import elastic
+from elktail import elastic
 
 
 def get_lines(client, iso_date, project, process_type, environment):
