@@ -11,8 +11,8 @@ Currently it depends that the the index template has the following fields:
 * fields.process_type.keyword
 * fields.environment.keyword
 
-**Future versions:** Won't have this requirement that will allow KQL language
-directly.
+**Future versions:** Won't have this requirement since it will allow KQL 
+language directly.
 
 ## Installation
 
